@@ -1,0 +1,10 @@
+<!-- @for (book of books; track $index) {
+  <li>{{book.title}}</li>
+} -->
+<li *ngFor="let book of books"
+  book-card
+  title="{{book.title}}"
+  cover="{{book.formats['image/jpeg']}}"
+  [id]="book.id"
+>
+</li>

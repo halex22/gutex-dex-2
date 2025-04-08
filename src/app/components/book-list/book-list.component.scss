@@ -1,0 +1,9 @@
+:host {
+    display: flex;
+    overflow: scroll;
+    gap: 1rem;
+
+    li {
+        list-style-type: none;
+    }
+}
