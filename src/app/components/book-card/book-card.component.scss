@@ -1,0 +1,23 @@
+:host {
+    width: 150px;
+}
+.img-container {
+    width: 150px;
+    height: 200px;
+
+    img {
+        object-fit: contain;
+        width: 100%;
+        height: inherit;
+    }
+}
+
+.title-container {
+
+    min-height: 100px;
+
+    h3 {
+        color: white;
+        background-color: black;
+    }
+}
