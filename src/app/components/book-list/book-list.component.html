@@ -1,10 +1,8 @@
-<!-- @for (book of books; track $index) {
-  <li>{{book.title}}</li>
-} -->
-<li *ngFor="let book of books"
+
+<li *ngFor="let book of bookService.books()"
   book-card
-  title="{{book.title}}"
-  cover="{{book.formats['image/jpeg']}}"
-  [id]="book.id"
+  [book]="book"
+  (bookSelected)="cardSelected($event)"
+  
 >
 </li>

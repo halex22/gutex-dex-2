@@ -1,5 +1,6 @@
-import { Component, input, inject } from '@angular/core';
-import { BookService } from '../../services/book.service';
+import { Component, input, output } from '@angular/core';
+import { type Book } from '../../models/book';
+
 
 @Component({
   selector: 'li[book-card]',
@@ -8,18 +9,19 @@ import { BookService } from '../../services/book.service';
   styleUrl: './book-card.component.scss'
 })
 export class BookCardComponent {
-  title = input('',{transform: (title:string) => this.resizeTitle(title, 8)})
-  id = input.required<number>()
-  cover = input.required<string>()
-  bookService = inject(BookService)
+  book = input.required<Book>()
+  bookSelected = output<Book>()
 
-  resizeTitle(title: string, maxNumber: number):string {
-    const wordsArray = title.split(' ')
-    const resizedArray = wordsArray.slice(0, maxNumber)
-    return resizedArray.join(' ')
-  }
+  // resizeTitle(title: string, maxNumber: number):string {
+  //   const wordsArray = title.split(' ')
+  //   const resizedArray = wordsArray.slice(0, maxNumber)
+  //   return resizedArray.join(' ')
+  // }
 
-  onBookClick() {
-    this.bookService.updateSelectedBookId(this.id())
+  // onBookClick() {
+    
+  // }
+  selectBook() {
+    this.bookSelected.emit(this.book())
   }
 }

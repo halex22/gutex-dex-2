@@ -1,7 +1,7 @@
 <div class="img-container">
-  <img src="{{cover()}}" >
+  <!-- <img [src]="book()?.formats?.['image/jpeg']" > -->
 </div>
 <div class="title-container">
-  <h3 (click)="onBookClick()">{{title()}}</h3>
+  <h3 (click)="selectBook()">{{book().title}}</h3>
 
 </div>

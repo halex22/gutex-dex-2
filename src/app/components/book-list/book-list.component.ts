@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { Component, effect, output, signal } from '@angular/core';
 import { BookService } from '../../services/book.service';
 import { type Book } from '../../models/book';
 import { BookCardComponent } from '../book-card/book-card.component';
@@ -11,15 +11,17 @@ import { NgFor } from '@angular/common';
   styleUrl: './book-list.component.scss'
 })
 export class BookListComponent {
+  bookSelect = output<Book >()
 
-  books: Book[] = []
+  constructor(public bookService: BookService) {
 
-  constructor(private bookService: BookService) {
-    effect(() => {
-      this.books = this.bookService.books()
-    })
   }
 
-
+  cardSelected(book: Book ) {
+    if (book) {
+      console.log(book.title)
+      this.bookSelect.emit(book)
+    }
+  }
 
 }

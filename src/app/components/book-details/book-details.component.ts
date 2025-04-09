@@ -11,12 +11,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './book-details.component.scss'
 })
 export class BookDetailsComponent {
-  book = signal<Book | null>(null)
-  bookService = inject(BookService)
+  book = input<Book>()
 
-  constructor() {
-    effect(() => {
-      this.book.set(this.bookService.getBookById())
-    })
-  }
 }

@@ -1,2 +1,5 @@
-<ul book-list></ul>
-<app-book-details></app-book-details>
+<ul book-list (bookSelect)="onBookSelection($event)">
+
+</ul>
+
+<app-book-details [book]="userSelectedBook"></app-book-details>
